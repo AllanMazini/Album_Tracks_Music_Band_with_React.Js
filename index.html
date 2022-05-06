@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto - Album de música</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.1.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.1.0/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+    const albumCoverUrl = 'https://upload.wikimedia.org/wikipedia/pt/2/26/Resgate_25_anos.jpg'
+
+    // const SourceTrack = () =>{
+    //     <audio autoplay="autoplay" controls="controls">
+    //     <source src="sua_musica.mp3" type="audio/mp3" />
+    //     </audio>
+    // }
+    // const sourceMusica = SourceTrack(); 
+
+    const AlbumTitle =({title})=>{
+        return <div className="album-title">{title}</div>
+    }
+
+    const AlbumBand = ({band}) => {
+        return <div className="album-band">{band}</div>
+    }
+
+    const AlbumCover = ({imageURL, titleAlt})=>{
+            return (
+            <div className="album-cover">
+                <img src={imageURL} alt={titleAlt}/>
+            </div>)
+    }
+
+    const AlbumTrack = ({trackName, trackNumber, audio}) =>{
+        return <div className="album-track"> {trackNumber} - {trackName}  {audio} </div>
+    }
+
+    const App = () =>{
+        return (
+        <div className="album">
+         <AlbumTitle title='25 Anos (álbum de Resgate)'/>
+         <AlbumBand band = 'Resgate'/>
+          <div className="album-info">
+            <AlbumCover imageURL={albumCoverUrl} titleAlt='25 Anos (álbum de Resgate)'/>
+            <div className="album-tracks">
+                <AlbumTrack trackNumber= '1' trackName='Leve Fardo'/>
+                <AlbumTrack trackNumber= '2' trackName='Depois de Tudo'/>
+                <AlbumTrack trackNumber= '3' trackName='Ninguém vai Saber'/>
+                <AlbumTrack trackNumber= '4' trackName='5:50 AM'/>
+                <AlbumTrack trackNumber= '5' trackName='Ao Rei'/>
+                <AlbumTrack trackNumber= '6' trackName='A Terapia'/>
+                <AlbumTrack trackNumber= '7' trackName='Sempre Tem Uma Assim'/>
+                <AlbumTrack trackNumber= '8' trackName='Doutores da Lei'/>
+                <AlbumTrack trackNumber= '9' trackName='Vou me Lembrar'/>
+                <AlbumTrack trackNumber= '10' trackName='Amor'/>
+                <AlbumTrack trackNumber= '11' trackName='All You Need Is Love'/>
+                <AlbumTrack trackNumber= '12' trackName='Luz'/>
+                <AlbumTrack trackNumber= '13' trackName='Ele'/>
+                <AlbumTrack trackNumber= '14' trackName='Amigo de Deus'/>
+              
+            </div>
+          </div>
+        </div>
+        )
+    }
+const element = <App />;
+ReactDOM.render(element, document.getElementById('root'))
+
+</script>
+    
+</body>
+</html>
